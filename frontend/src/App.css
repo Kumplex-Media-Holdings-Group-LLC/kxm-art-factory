@@ -1,34 +1,234 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Neo-Brutalist Pop Design System */
+
+/* Remove default center alignment */
+.App {
+  text-align: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Button styles */
+.btn-primary {
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-bold bg-black text-white border-2 border-black transition-colors duration-200;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.btn-primary:hover {
+  @apply bg-[#CCFF00] text-black;
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  transform: translate(-2px, -2px);
 }
 
-.App-link {
-    color: #61dafb;
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-bold bg-white text-black border-2 border-black transition-colors duration-200;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.btn-secondary:hover {
+  @apply bg-black text-white;
+}
+
+.btn-accent {
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-bold bg-[#CCFF00] text-black border-2 border-black transition-colors duration-200;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.btn-accent:hover {
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  transform: translate(-2px, -2px);
+}
+
+/* Card styles */
+.card-brutal {
+  @apply bg-white border-2 border-black p-6;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.card-brutal:hover {
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  transform: translate(-2px, -2px);
+}
+
+/* Input styles */
+.input-brutal {
+  @apply w-full h-12 px-4 text-sm bg-white border-2 border-black placeholder:text-gray-400;
+}
+
+.input-brutal:focus {
+  @apply outline-none ring-2 ring-black ring-offset-2;
+}
+
+/* Color swatches */
+.swatch {
+  @apply w-12 h-12 border-2 border-black cursor-pointer transition-transform duration-200;
+}
+
+.swatch:hover {
+  transform: scale(1.1);
+}
+
+.swatch.active {
+  box-shadow: 0 0 0 3px #CCFF00;
+}
+
+/* Design canvas */
+.design-canvas {
+  @apply relative bg-white border-2 border-black overflow-hidden;
+  min-height: 500px;
+}
+
+.design-zone {
+  @apply absolute border-2 border-dashed border-[#FF0099] bg-[#FF009910] cursor-pointer transition-all duration-200;
+}
+
+.design-zone:hover {
+  @apply bg-[#FF009920] border-solid;
+}
+
+.design-zone.active {
+  @apply border-[#CCFF00] bg-[#CCFF0020];
+}
+
+/* Chat bubbles */
+.chat-user {
+  @apply bg-black text-white p-4 max-w-[80%] ml-auto;
+}
+
+.chat-assistant {
+  @apply bg-[#F5F5F5] text-black p-4 max-w-[80%] border-2 border-black;
+}
+
+/* Typography */
+.heading-xl {
+  @apply text-6xl md:text-8xl font-extrabold tracking-tighter leading-none uppercase;
+  font-family: 'Syne', sans-serif;
+}
+
+.heading-lg {
+  @apply text-4xl md:text-6xl font-extrabold tracking-tight leading-none;
+  font-family: 'Syne', sans-serif;
+}
+
+.heading-md {
+  @apply text-2xl md:text-3xl font-bold;
+  font-family: 'Syne', sans-serif;
+}
+
+.body-text {
+  @apply text-base md:text-lg leading-relaxed;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.caption {
+  @apply text-xs font-mono uppercase tracking-widest;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Bento grid */
+.bento-grid {
+  @apply grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6;
+}
+
+/* Toolbar */
+.toolbar {
+  @apply flex items-center gap-2 p-2 bg-white border-2 border-black;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.toolbar-btn {
+  @apply p-2 border-2 border-transparent hover:border-black hover:bg-[#CCFF00] transition-colors duration-200;
+}
+
+.toolbar-btn.active {
+  @apply bg-[#CCFF00] border-black;
+}
+
+/* Pattern tiles */
+.pattern-tile {
+  @apply aspect-square border-2 border-black cursor-pointer overflow-hidden;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.pattern-tile:hover {
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  transform: translate(-2px, -2px);
+}
+
+/* Product card */
+.product-card {
+  @apply bg-white border-2 border-black overflow-hidden cursor-pointer;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  transform: translate(-4px, -4px);
+}
+
+/* Model selector tabs */
+.model-tab {
+  @apply px-4 py-2 text-sm font-bold border-2 border-black transition-colors duration-200;
+}
+
+.model-tab.openai {
+  @apply bg-white text-black;
+}
+
+.model-tab.openai.active {
+  @apply bg-[#10A37F] text-white;
+}
+
+.model-tab.claude {
+  @apply bg-white text-black;
+}
+
+.model-tab.claude.active {
+  @apply bg-[#D97757] text-white;
+}
+
+.model-tab.gemini {
+  @apply bg-white text-black;
+}
+
+.model-tab.gemini.active {
+  @apply bg-[#4285F4] text-white;
+}
+
+/* Accent backgrounds */
+.bg-lime { background-color: #CCFF00; }
+.bg-pink { background-color: #FF0099; }
+.bg-cyan { background-color: #00FFFF; }
+.bg-purple { background-color: #9D00FF; }
+
+/* Text colors */
+.text-lime { color: #CCFF00; }
+.text-pink { color: #FF0099; }
+.text-cyan { color: #00FFFF; }
+.text-purple { color: #9D00FF; }
+
+/* Draggable design */
+.draggable-design {
+  @apply absolute cursor-move;
+}
+
+.draggable-design.dragging {
+  opacity: 0.7;
+}
+
+/* Upload zone */
+.upload-zone {
+  @apply flex flex-col items-center justify-center p-8 border-2 border-dashed border-black bg-[#F5F5F5] cursor-pointer transition-colors duration-200;
+}
+
+.upload-zone:hover {
+  @apply bg-[#CCFF00] border-solid;
+}
+
+/* JSON editor */
+.json-editor {
+  @apply w-full min-h-[300px] p-4 font-mono text-sm bg-[#1A1A1A] text-[#CCFF00] border-2 border-black;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply w-6 h-6 border-2 border-black border-t-transparent rounded-full animate-spin;
 }
